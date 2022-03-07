@@ -14,11 +14,6 @@ final class HelloWorldCommand implements Command {
   }
 
   @Override
-  public String key() {
-    return "hello";
-  }
-
-  @Override
   public Status handleInput(final List<String> input) {
     if (!input.isEmpty()) {
       return Status.INVALID;

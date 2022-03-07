@@ -1,16 +1,15 @@
 package atm.commands;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
 public final class CommandRouter {
-  private final Map<String, Command> commands = new HashMap<>();
+  private final Map<String, Command> commands;
 
   @Inject
-  CommandRouter(Command command) {
-    commands.put(command.key(), command);
+  CommandRouter(Map<String, Command> commands) {
+    this.commands = commands;
   }
 
   public Command.Status route(String input) {
