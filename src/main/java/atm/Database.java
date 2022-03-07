@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class Database {
   private final Map<String, Account> accounts = new HashMap<>();
 
@@ -16,7 +18,7 @@ public class Database {
   }
 
   public static final class Account {
-    private final String username;
+    private String username;
     private BigDecimal balance = BigDecimal.ZERO;
 
     Account(String username) {
@@ -27,8 +29,16 @@ public class Database {
       return username;
     }
 
+    public void setUsername(String username) {
+      this.username = username;
+    }
+
     public BigDecimal balance() {
       return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+      this.balance = balance;
     }
   }
 }
