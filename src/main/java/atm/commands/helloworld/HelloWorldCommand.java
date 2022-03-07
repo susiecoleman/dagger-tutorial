@@ -1,10 +1,15 @@
+package atm.commands.helloworld;
+
+import atm.commands.Command;
+import atm.outputter.Outputter;
 import java.util.List;
 import javax.inject.Inject;
 
-final class HelloWorldCommand implements Command{
+final class HelloWorldCommand implements Command {
   private final Outputter outputter;
+
   @Inject
-  HelloWorldCommand(Outputter outputter){
+  HelloWorldCommand(Outputter outputter) {
     this.outputter = outputter;
   }
 
@@ -15,7 +20,7 @@ final class HelloWorldCommand implements Command{
 
   @Override
   public Status handleInput(final List<String> input) {
-    if(!input.isEmpty()){
+    if (!input.isEmpty()) {
       return Status.INVALID;
     }
     outputter.output("world!");

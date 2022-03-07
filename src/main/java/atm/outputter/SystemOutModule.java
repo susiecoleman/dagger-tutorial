@@ -1,3 +1,5 @@
+package atm.outputter;
+
 import dagger.Module;
 import dagger.Provides;
 

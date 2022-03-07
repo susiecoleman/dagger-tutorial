@@ -1,3 +1,6 @@
+package atm.commands.helloworld;
+
+import atm.commands.Command;
 import dagger.Binds;
 import dagger.Module;
 
