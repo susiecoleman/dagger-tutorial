@@ -13,18 +13,18 @@ public final class CommandRouter {
   }
 
   public Command.Status route(String input) {
-    List<String> splitInput = split(input);
+    final var splitInput = split(input);
     if (splitInput.isEmpty()) {
       return invalidCommand(input);
     }
 
-    String commandKey = splitInput.get(0);
-    Command command = commands.get(commandKey);
+    final var commandKey = splitInput.get(0);
+    final var command = commands.get(commandKey);
     if (command == null) {
       return invalidCommand(input);
     }
 
-    Command.Status status = command.handleInput(splitInput.subList(1, splitInput.size()));
+    final var status = command.handleInput(splitInput.subList(1, splitInput.size()));
     if (status == Command.Status.INVALID) {
       System.out.println(commandKey + ": invalid arguments");
     }

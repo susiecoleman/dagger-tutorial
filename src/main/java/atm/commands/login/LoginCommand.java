@@ -17,7 +17,7 @@ public final class LoginCommand extends SingleArgCommand {
 
   @Override
   protected Status handleArg(final String username) {
-    Database.Account account = database.getAccount(username);
+    final var account = database.getAccount(username);
     outputter.output(username + " is logged in with balance: " + account.balance());
     return Status.HANDLED;
   }
