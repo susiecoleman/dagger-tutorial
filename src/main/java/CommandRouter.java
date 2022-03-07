@@ -1,13 +1,16 @@
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
 final public class CommandRouter {
-  private final Map<String, Command> commands = Collections.emptyMap();
+  private final Map<String, Command> commands = new HashMap<>();
 
   @Inject
-  CommandRouter(){}
+  CommandRouter(HelloWorldCommand helloWorldCommand){
+    commands.put(helloWorldCommand.key(), helloWorldCommand);
+  }
 
   Command.Status route(String input) {
     List<String> splitInput = split(input);
