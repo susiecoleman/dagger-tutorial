@@ -41,5 +41,9 @@ public class Database {
     public void setBalance(BigDecimal balance) {
       this.balance = balance;
     }
+
+    public void withdraw(BigDecimal amount) {
+      balance = balance.subtract(amount);
+    }
   }
 }
