@@ -1,6 +1,7 @@
 package atm.command;
 
 import atm.command.deposit.DepositCommand;
+import atm.command.logout.LogoutCommand;
 import atm.command.withdraw.WithdrawCommand;
 import dagger.Binds;
 import dagger.Module;
@@ -18,4 +19,9 @@ public abstract class UserCommandsModule {
   @IntoMap
   @StringKey("withdraw")
   abstract Command withdrawCommand(WithdrawCommand command);
+
+  @Binds
+  @IntoMap
+  @StringKey("logout")
+  abstract Command logoutCommand(LogoutCommand command);
 }

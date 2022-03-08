@@ -32,4 +32,8 @@ public class Result {
   public static Result handled() {
     return new Result(Command.Status.HANDLED, Optional.empty());
   }
+
+  public static Result inputCompleted() {
+    return new Result(Command.Status.INPUT_COMPLETED, Optional.empty());
+  }
 }
