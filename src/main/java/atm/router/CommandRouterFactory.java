@@ -1,7 +1,8 @@
-package atm.commands;
+package atm.router;
 
-import atm.commands.helloworld.HelloWorldModule;
-import atm.commands.login.LoginCommandModule;
+import atm.command.UserCommandsModule;
+import atm.command.helloworld.HelloWorldModule;
+import atm.command.login.LoginCommandModule;
 import atm.outputter.SystemOutModule;
 import dagger.Component;
 import javax.inject.Singleton;

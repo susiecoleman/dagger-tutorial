@@ -1,6 +1,6 @@
 package atm;
 
-import atm.commands.DaggerCommandRouterFactory;
+import atm.router.DaggerCommandRouterFactory;
 import java.util.Scanner;
 
 public class CommandLineAtm {

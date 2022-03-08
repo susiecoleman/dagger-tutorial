@@ -1,7 +1,10 @@
-package atm.commands;
+package atm.router;
 
+import atm.command.Command;
+import atm.model.Result;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import javax.inject.Inject;
 
 public final class CommandRouter {
@@ -12,7 +15,7 @@ public final class CommandRouter {
     this.commands = commands;
   }
 
-  public Command.Status route(String input) {
+  public Result route(String input) {
     final var splitInput = split(input);
     if (splitInput.isEmpty()) {
       return invalidCommand(input);
@@ -24,16 +27,16 @@ public final class CommandRouter {
       return invalidCommand(input);
     }
 
-    final var status = command.handleInput(splitInput.subList(1, splitInput.size()));
-    if (status == Command.Status.INVALID) {
+    final var result = command.handleInput(splitInput.subList(1, splitInput.size()));
+    if (result.status() == Command.Status.INVALID) {
       System.out.println(commandKey + ": invalid arguments");
     }
-    return status;
+    return result;
   }
 
-  private Command.Status invalidCommand(String input) {
+  private Result invalidCommand(String input) {
     System.out.printf("couldn't understand \"%s\". please try again%n", input);
-    return Command.Status.INVALID;
+    return new Result(Command.Status.INVALID, Optional.empty());
   }
 
   private static List<String> split(String string) {

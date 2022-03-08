@@ -1,6 +1,6 @@
-package atm.commands.login;
+package atm.command.login;
 
-import atm.commands.Command;
+import atm.command.Command;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;

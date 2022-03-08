@@ -1,6 +1,6 @@
-package atm.commands;
+package atm.command;
 
-import atm.commands.deposit.DepositCommand;
+import atm.command.deposit.DepositCommand;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;

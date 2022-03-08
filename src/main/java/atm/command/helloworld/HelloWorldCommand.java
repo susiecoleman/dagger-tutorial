@@ -1,6 +1,7 @@
-package atm.commands.helloworld;
+package atm.command.helloworld;
 
-import atm.commands.Command;
+import atm.command.Command;
+import atm.model.Result;
 import atm.outputter.Outputter;
 import java.util.List;
 import javax.inject.Inject;
@@ -14,11 +15,11 @@ final class HelloWorldCommand implements Command {
   }
 
   @Override
-  public Status handleInput(final List<String> input) {
+  public Result handleInput(final List<String> input) {
     if (!input.isEmpty()) {
-      return Status.INVALID;
+      return Result.invalid();
     }
     outputter.output("world!");
-    return Status.HANDLED;
+    return Result.handled();
   }
 }

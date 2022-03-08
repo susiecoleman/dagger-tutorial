@@ -1,7 +1,8 @@
-package atm.commands.deposit;
+package atm.command.deposit;
 
-import atm.Database;
-import atm.commands.Command;
+import atm.command.Command;
+import atm.model.Database;
+import atm.model.Result;
 import atm.outputter.Outputter;
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,13 +19,13 @@ public class DepositCommand implements Command {
   }
 
   @Override
-  public Status handleInput(final List<String> input) {
+  public Result handleInput(final List<String> input) {
     if (input.size() != 2) {
-      return Status.INVALID;
+      return Result.invalid();
     }
     final var account = database.getAccount(input.get(0));
     account.setBalance(new BigDecimal(input.get(1)));
     outputter.output(account.username() + " now has: " + account.balance());
-    return Status.HANDLED;
+    return Result.handled();
   }
 }

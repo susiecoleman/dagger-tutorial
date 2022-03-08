@@ -1,7 +1,8 @@
-package atm.commands.login;
+package atm.command.login;
 
-import atm.Database;
-import atm.commands.SingleArgCommand;
+import atm.command.SingleArgCommand;
+import atm.model.Database;
+import atm.model.Result;
 import atm.outputter.Outputter;
 import javax.inject.Inject;
 
@@ -16,9 +17,9 @@ public final class LoginCommand extends SingleArgCommand {
   }
 
   @Override
-  protected Status handleArg(final String username) {
+  protected Result handleArg(final String username) {
     final var account = database.getAccount(username);
     outputter.output(username + " is logged in with balance: " + account.balance());
-    return Status.HANDLED;
+    return Result.handled();
   }
 }
