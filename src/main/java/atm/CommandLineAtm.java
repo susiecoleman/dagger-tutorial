@@ -1,17 +1,16 @@
 package atm;
 
-import atm.router.DaggerCommandRouterFactory;
+import atm.processor.DaggerCommandProcessorFactory;
 import java.util.Scanner;
 
 public class CommandLineAtm {
 
   public static void main(String[] args) {
     final var scanner = new Scanner(System.in);
-    final var commandRouterFactory = DaggerCommandRouterFactory.create();
-    final var commandRouter = commandRouterFactory.router();
+    final var commandProcessor = DaggerCommandProcessorFactory.create().processor();
 
     while (scanner.hasNextLine()) {
-      commandRouter.route(scanner.nextLine());
+      commandProcessor.process(scanner.nextLine());
     }
   }
 }

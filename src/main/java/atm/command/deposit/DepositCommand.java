@@ -1,31 +1,25 @@
 package atm.command.deposit;
 
-import atm.command.Command;
+import atm.command.helpers.BigDecimalCommand;
 import atm.model.Database;
-import atm.model.Result;
 import atm.outputter.Outputter;
 import java.math.BigDecimal;
-import java.util.List;
 import javax.inject.Inject;
 
-public class DepositCommand implements Command {
-  private final Database database;
+public class DepositCommand extends BigDecimalCommand {
+  private final Database.Account account;
   private final Outputter outputter;
 
   @Inject
-  DepositCommand(Database database, Outputter outputter) {
-    this.database = database;
+  DepositCommand(Outputter outputter, Database.Account account) {
+    super(outputter);
+    this.account = account;
     this.outputter = outputter;
   }
 
   @Override
-  public Result handleInput(final List<String> input) {
-    if (input.size() != 2) {
-      return Result.invalid();
-    }
-    final var account = database.getAccount(input.get(0));
-    account.setBalance(new BigDecimal(input.get(1)));
+  public void handleAmount(BigDecimal amount) {
+    account.setBalance(amount);
     outputter.output(account.username() + " now has: " + account.balance());
-    return Result.handled();
   }
 }

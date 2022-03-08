@@ -21,6 +21,7 @@ public class Database {
     private String username;
     private BigDecimal balance = BigDecimal.ZERO;
 
+    @Inject
     Account(String username) {
       this.username = username;
     }

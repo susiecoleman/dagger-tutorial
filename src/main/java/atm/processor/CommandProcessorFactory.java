@@ -1,8 +1,9 @@
-package atm.router;
+package atm.processor;
 
 import atm.command.helloworld.HelloWorldModule;
 import atm.command.login.LoginCommandModule;
 import atm.outputter.SystemOutModule;
+import atm.router.UserCommandsRouter;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -14,6 +15,6 @@ import javax.inject.Singleton;
       SystemOutModule.class,
       UserCommandsRouter.InstallationModule.class
     })
-public interface CommandRouterFactory {
-  CommandRouter router();
+public interface CommandProcessorFactory {
+  CommandProcessor processor();
 }
