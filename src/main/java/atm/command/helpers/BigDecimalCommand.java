@@ -1,6 +1,5 @@
 package atm.command.helpers;
 
-import atm.command.SingleArgCommand;
 import atm.model.Result;
 import atm.outputter.Outputter;
 import java.math.BigDecimal;

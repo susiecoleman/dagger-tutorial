@@ -1,6 +1,6 @@
 package atm.command.login;
 
-import atm.command.SingleArgCommand;
+import atm.command.helpers.SingleArgCommand;
 import atm.model.Database;
 import atm.model.Result;
 import atm.outputter.Outputter;

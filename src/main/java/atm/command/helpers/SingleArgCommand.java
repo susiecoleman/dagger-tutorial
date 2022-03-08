@@ -1,5 +1,6 @@
-package atm.command;
+package atm.command.helpers;
 
+import atm.command.Command;
 import atm.model.Result;
 import java.util.List;
 
