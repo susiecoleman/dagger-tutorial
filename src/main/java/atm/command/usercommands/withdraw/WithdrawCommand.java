@@ -1,15 +1,15 @@
-package atm.command.withdraw;
+package atm.command.usercommands.withdraw;
 
 import atm.command.helpers.BigDecimalCommand;
 import atm.command.helpers.WithdrawalLimiter;
-import atm.model.Database;
+import atm.database.account.Account;
 import atm.outputter.Outputter;
 import java.math.BigDecimal;
 import javax.inject.Inject;
 
 public final class WithdrawCommand extends BigDecimalCommand {
   private final Outputter outputter;
-  private final Database.Account account;
+  private final Account account;
   private final WithdrawalLimiter withdrawalLimiter;
   private final BigDecimal minimumBalance;
   private final BigDecimal maximumWithdrawal;
@@ -17,7 +17,7 @@ public final class WithdrawCommand extends BigDecimalCommand {
   @Inject
   public WithdrawCommand(
       Outputter outputter,
-      Database.Account account,
+      Account account,
       WithdrawalLimiter withdrawalLimiter,
       @MinimumBalance BigDecimal minimumBalance,
       @MaximumWithdrawal BigDecimal maximumWithdrawal) {

@@ -1,7 +1,7 @@
 package atm.command.helpers;
 
 import atm.PerSession;
-import atm.command.withdraw.MaximumWithdrawal;
+import atm.command.usercommands.withdraw.MaximumWithdrawal;
 import java.math.BigDecimal;
 import javax.inject.Inject;
 

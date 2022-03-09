@@ -1,8 +1,9 @@
-package atm.command;
+package atm.command.usercommands;
 
-import atm.command.deposit.DepositCommand;
-import atm.command.logout.LogoutCommand;
-import atm.command.withdraw.WithdrawCommand;
+import atm.command.Command;
+import atm.command.usercommands.deposit.DepositCommand;
+import atm.command.usercommands.logout.LogoutCommand;
+import atm.command.usercommands.withdraw.WithdrawCommand;
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;

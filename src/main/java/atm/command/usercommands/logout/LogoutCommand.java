@@ -1,4 +1,4 @@
-package atm.command.logout;
+package atm.command.usercommands.logout;
 
 import atm.command.Command;
 import atm.model.Result;

@@ -1,4 +1,4 @@
-package atm.command.withdraw;
+package atm.command.usercommands.withdraw;
 
 import dagger.Module;
 import dagger.Provides;
