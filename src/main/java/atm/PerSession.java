@@ -1,11 +1,11 @@
-package atm.command.withdraw;
+package atm;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import javax.inject.Qualifier;
+import javax.inject.Scope;
 
-@Qualifier
+@Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MinimumBalance {}
+public @interface PerSession {}
